@@ -1,0 +1,10 @@
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\Spawner\PipeObjectSpawner.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\PipeObjectSpawner.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\PipeObstacle\PipeObstacleActor.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\PipeObstacleActor.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\CustomActor\Player\Player.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\Player.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\CustomActor\Background\Background.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\Background.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\Components\SpriteComponent\SpriteComponent.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\SpriteComponent.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\Actor\Actor.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\Actor.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\Game\Game.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\Game.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\libs\glm\detail\glm.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\glm.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\libs\glm\glm.cppm;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\glm.cppm.obj
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\main.cpp;E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\floppybird\x64\Debug\main.obj

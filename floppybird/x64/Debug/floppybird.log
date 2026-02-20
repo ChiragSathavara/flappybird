@@ -1,0 +1,4 @@
+﻿  Scanning sources for module dependencies...
+  Game.cpp
+E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\src\Game\Game.cpp(187,28): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+  floppybird.vcxproj -> E:\CUSTOM_GAME_ENGINES\SDL_GAME_2026\floppybird\x64\Debug\floppybird.exe

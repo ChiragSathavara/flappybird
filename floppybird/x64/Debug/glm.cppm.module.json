@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "floppybird\\x64\\Debug\\glm.cppm.obj",
+            "outputs": [
+                "E:\\CUSTOM_GAME_ENGINES\\SDL_GAME_2026\\floppybird\\floppybird\\x64\\Debug\\vc143.pdb",
+                "floppybird\\x64\\Debug\\",
+                "E:\\CUSTOM_GAME_ENGINES\\SDL_GAME_2026\\floppybird\\floppybird\\x64\\Debug\\glm.cppm.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "glm",
+                    "source-path": "e:\\custom_game_engines\\sdl_game_2026\\floppybird\\libs\\glm\\glm.cppm",
+                    "is-interface": true
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
