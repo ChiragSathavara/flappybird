@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SDL2/include/SDL.h"
-
+#include "SDL2/include/SDL_ttf.h"
 
 const int FPS = 60;
 const int MIL_SEC_PER_FRAME = 1000 / FPS;
@@ -31,7 +31,8 @@ public:
    void GameOverTitleImplementation();
    void GameStartTitleImplementation();
    void GameTextTitleImplementation();
-
+   void GameScoreTextImplementation(int Score);
+   
    void InitGame();
    void ProcessInput();
    void Update();
@@ -45,6 +46,9 @@ private:
 	int WindWidth;
 
 	int ScoreText;
+	TTF_Font* ScoreFont = nullptr;
+	SDL_Surface* ScoreSurface = nullptr;
+	SDL_Texture* ScoreTexture = nullptr;
 
 	Uint32 MIL_SEC_PREVIOUS_FRAME;
 	float DeltaTime;
@@ -60,7 +64,11 @@ private:
 	SDL_Window* MyWind;
 	SDL_Renderer* MyRen;
 
+	SDL_Rect MyScoreTextRect;
+
 	PlayerBirdAnimationState PBirdAState;
+
+	
 
 	//Background
 	Background* MyBGActor;

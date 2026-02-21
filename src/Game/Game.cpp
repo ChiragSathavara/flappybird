@@ -3,6 +3,7 @@
 #include "CustomActor/Player/Player.h"
 #include "PipeObstacle/PipeObstacleActor.h"
 #include <iostream>
+#include <string>
 #include <ctime>
 #include <cstdlib>
 
@@ -11,9 +12,22 @@ Game::Game()
 	bIsRunning = false;
 	bIsGameStart = false;
 	bIsGameOver = false;
+
+	ScoreSurface = nullptr;
+	ScoreTexture = nullptr;
+	ScoreFont = nullptr;  
+
+	MyWind = nullptr;     
+	MyRen = nullptr;      
+
 	PBirdAState = OneFlap;
+	
 	ScoreText = 0;
+	
+	TTF_Init();
+
 	srand(static_cast<unsigned int>(time(nullptr)));
+
 }
 
 Game::~Game()
@@ -71,6 +85,24 @@ void Game::GameTextTitleImplementation()
 	GameScoreActor->SetTexture(MyRen);
 }
 
+void Game::GameScoreTextImplementation(int Score)
+{
+	MyScoreTextRect.x = 190;
+	MyScoreTextRect.y = 10;
+	MyScoreTextRect.w = 20;
+	MyScoreTextRect.h = 30;
+	
+	std::string ScoreString = std::to_string(Score);
+	SDL_Color color = { 255, 255, 255, 255 };
+
+	
+
+	ScoreSurface = TTF_RenderText_Solid(ScoreFont,ScoreString.c_str(), color);
+	ScoreTexture = SDL_CreateTextureFromSurface(MyRen, ScoreSurface);
+	SDL_FreeSurface(ScoreSurface);
+
+}
+
 void Game::InitGame()
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -98,7 +130,21 @@ void Game::InitGame()
 	{
 		return;
 	}
+
+	if (TTF_Init() == -1)
+	{
+		std::cout << "TTF Init Failed\n";
+		return;
+	}
+
+	ScoreFont = TTF_OpenFont("./sprites/font/Alan_Sans/static/AlanSans-Regular.ttf", 24);
+
+	if (!ScoreFont)
+	{
+		std::cout << "Font failed to load\n";
+	}
  
+
 	BGImplementation();
 
 	PipeObstacleImplementation();
@@ -107,7 +153,7 @@ void Game::InitGame()
 
 	GameStartTitleImplementation();
 
-	GameTextTitleImplementation();
+	GameScoreTextImplementation(0);
 
 	bIsRunning = true;
 }
@@ -227,6 +273,7 @@ void Game::Update()
 	{
 		++ScoreText;
 		MyPipeObstacleActor->bHasScored = true;
+		GameScoreTextImplementation(ScoreText);
 		std::cout << "Bird Collide With ScoreBox = " << ScoreText << std::endl;
 	}
 
@@ -301,29 +348,40 @@ void Game::RenderGame()
 	{
 		GameScoreActor->RenderActor(MyRen);
 	}
-
+	if (ScoreTexture)
+	{
+		SDL_RenderCopy(MyRen, ScoreTexture, nullptr, &MyScoreTextRect);
+	}
 
 	SDL_RenderPresent(MyRen);
 }
 
 void Game::DestroyGame()
 {
-	SDL_DestroyWindow(MyWind);
-	SDL_DestroyRenderer(MyRen);
+	if (ScoreTexture)
+	{
+		SDL_DestroyTexture(ScoreTexture);
+		ScoreTexture = nullptr;
+	}
 
-	delete MyBGActor;
-	delete MyPipeObstacleActor;
-	delete PlayerActor;
-	delete GameOverTitleActor;
-	delete GameStartTitleActor;
-	delete GameScoreActor;
+	if (ScoreFont)
+	{
+		TTF_CloseFont(ScoreFont);
+		ScoreFont = nullptr;
+	}
 
-	MyBGActor = nullptr;
-	MyPipeObstacleActor = nullptr;
-	PlayerActor = nullptr;
-	GameOverTitleActor = nullptr;
-	GameStartTitleActor = nullptr;
-	GameScoreActor = nullptr;
+	if (MyRen)
+	{
+		SDL_DestroyRenderer(MyRen);
+		MyRen = nullptr;
+	}
 
+	if (MyWind)
+	{
+		SDL_DestroyWindow(MyWind);
+		MyWind = nullptr;
+	}
+
+	TTF_Quit();
 	SDL_Quit();
 }
